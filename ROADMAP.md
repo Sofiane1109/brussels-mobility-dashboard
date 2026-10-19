@@ -4,14 +4,14 @@ Durée prévue : 4 semaines (du 19 octobre au 16 novembre 2026 environ).
 
 ## Phase 0 : Cadrage (19 octobre)
 - [x] Choisir le titre et créer le repo public
-- [ ] Choisir la source de données (STIB, Villo!, qualité de l'air)
-- [ ] Définir 3 à 4 questions d'analyse
+- [x] Choisir la source de données : STIB (GTFS + API temps réel, licence CC BY 4.0)
+- [x] Définir 3 à 4 questions d'analyse (voir README)
 - [ ] Installer PostgreSQL, Python, Git, Power BI Desktop (Windows)
 
 ## Phase 1 : Données et SQL (semaine 1)
+- [x] Schéma en étoile : table de faits + dimensions (date, station/ligne, ...)
+- [x] Scripts `CREATE TABLE` (clés primaires, clés étrangères, index)
 - [ ] Script Python de collecte (appel API, nettoyage minimal)
-- [ ] Schéma en étoile : table de faits + dimensions (date, station/ligne, ...)
-- [ ] Scripts `CREATE TABLE` (clés primaires, clés étrangères, index)
 - [ ] Chargement : table de staging brute, puis transformation SQL vers les tables finales
 - [ ] Vues SQL d'analyse (agrégations, jointures, fenêtrage, CTE)
 - [ ] Automatisation de la collecte quotidienne

@@ -6,11 +6,12 @@ End-to-end Brussels mobility analytics: Python data collection, PostgreSQL star 
 
 ## Goal
 
-Answer concrete questions about mobility in Brussels using open data:
+Answer concrete questions about the STIB public transport network using open data:
 
-1. _Question 1 (to define)_
-2. _Question 2 (to define)_
-3. _Question 3 (to define)_
+1. Which lines and stops offer the most service, and at what hours?
+2. How does the planned service change between weekdays, Saturdays and Sundays?
+3. How many vehicles are actually running per line compared with the timetable?
+4. How is service split between metro, tram and bus?
 
 ## Architecture
 
@@ -18,7 +19,7 @@ Answer concrete questions about mobility in Brussels using open data:
 Open data API  →  Python collection  →  PostgreSQL (staging → star schema)  →  Power BI report  →  Web dashboard
 ```
 
-_Architecture diagram to be added in `docs/`._
+Database design: see [docs/db-schema.md](docs/db-schema.md).
 
 ## Tech stack
 
@@ -48,7 +49,12 @@ _Detailed instructions to be completed._
 
 ## Data source and license
 
-_Source name, link and license of the open data used (to be completed)._
+Data from **STIB-MIVB Open Data** via the [Belgian Mobility Open Data Portal](https://data.belgianmobility.io/), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+- GTFS static timetable (refreshed daily)
+- Real-time Vehicle Positions API
+
+Source: STIB-MIVB – Open Data – _date of dataset update_
 
 ## Live demo
 
