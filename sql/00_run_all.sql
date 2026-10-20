@@ -5,10 +5,12 @@
 --   psql -U <user> -d brussels_mobility -f 00_run_all.sql
 -- Warning: dwh tables are dropped and recreated (data is lost).
 -- =============================================================
- 
+
 \set ON_ERROR_STOP on
+-- Files are UTF-8 (accents in French labels), also on Windows
+\encoding UTF8
 SET client_min_messages = warning;   -- hide "does not exist, skipping" notices
- 
+
 BEGIN;
 \i 01_schemas.sql
 \i 02_staging.sql
