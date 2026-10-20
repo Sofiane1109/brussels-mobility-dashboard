@@ -40,12 +40,36 @@ docs/       Architecture diagram and documentation
 
 ## Getting started
 
-1. Clone the repo and copy `.env.example` to `.env`, then fill in your values.
-2. Create the database and run the scripts in `sql/`.
-3. Run the collection scripts in `collecte/`.
-4. Open the report in `powerbi/` and point it to your database.
+Requirements: PostgreSQL 15+, Python 3.10+.
 
-_Detailed instructions to be completed._
+```bash
+# 1. Configuration
+cp .env.example .env            # then fill in your PostgreSQL user and password
+
+# 2. Database structure
+createdb brussels_mobility
+cd sql && psql -d brussels_mobility -f 00_run_all.sql && cd ..
+
+# 3. Python dependencies
+python -m venv .venv
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+pip install -r collecte/requirements.txt
+
+# 4. Load the STIB timetable (download + staging + star schema)
+python collecte/load_gtfs.py
+```
+
+If the download fails, download the GTFS zip manually from the
+[Belgian Mobility Open Data Portal](https://data.belgianmobility.io/en/data.html) and run
+`python collecte/load_gtfs.py --file path/to/gtfs.zip` (a folder with the unzipped files also works).
+
+```bash
+# 5. Collect real-time vehicle positions
+python collecte/collect_vehicles.py            # one snapshot
+python collecte/collect_vehicles.py --loop     # one snapshot every 15 minutes
+```
+
+Then open the report in `powerbi/` and point it to your database.
 
 ## Data source and license
 

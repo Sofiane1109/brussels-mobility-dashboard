@@ -13,7 +13,7 @@ Durée prévue : 4 semaines (du 19 octobre au 16 novembre 2026 environ).
 - [x] Scripts `CREATE TABLE` (clés primaires, clés étrangères, index)
 - [x] Script Python de chargement du GTFS (horaires prévus)
 - [x] Chargement : table de staging brute, puis transformation SQL vers les tables finales
-- [ ] Script Python de collecte de l'API temps réel (positions des véhicules)
+- [x] Script Python de collecte de l'API temps réel (positions des véhicules)
 - [ ] Vues SQL d'analyse (agrégations, jointures, fenêtrage, CTE)
 - [ ] Automatisation de la collecte quotidienne
 
